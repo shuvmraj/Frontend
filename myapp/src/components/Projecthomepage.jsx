@@ -3,10 +3,16 @@ import '../css/projecthomepage.css';
 import { callApi } from '../api';
 
 export class Projecthomepage extends Component {
-  constructor(){
-    super();
-    this.userRegistration = this.userRegistration.bind(this);
-  }
+
+
+constructor(){
+
+  
+  super();
+  this.userRegistration = this.userRegistration.bind(this);
+}
+
+
 
   showSignin() {
     let popup = document.getElementById('popup');
@@ -36,6 +42,8 @@ export class Projecthomepage extends Component {
       popup.style.display = 'none';
     }
   }
+
+
   userRegistration()
   {
         let fullname = document.getElementById("fullname");
@@ -148,20 +156,21 @@ export class Projecthomepage extends Component {
               <label >Email:</label>
               <input type='email' id='email' />
 
-              <select id='role'>
-                <option value=''></option>
-                <option value='1'>Admin</option>
-                <option value='2'>Employer</option>
-                <option value='3'>Job Seeker</option>
-              </select>
+                <select id='role'>
+                  <option value=''></option>
+                  <option value='1'>Admin</option>
+                  <option value='2'>Employer</option>
+                  <option value='3'>Job Seeker</option>                
+                  </select>
 
               <label>Password:</label>
               <input type='password' id='signuppassword' />
-              <label>Confirm Password: </label>
-              <input type='password' id='confirmPassword' />
-              <button onClick={this.userRegistration} >Register Now</button>
-              <div>Already have an account? <span onClick={this.showSignin}>SIGN IN</span></div>
+              <label>Confirm password:</label>
+              <input type='password' id='confirmpassword' />
+              <button onClick={this.userRegistration}>Register Now</button>
 
+              <div>Already have an account? <span onClick={this.showSignin}>SIGN IN</span></div>
+              
             </div>
           </div>
         </div>
@@ -207,9 +216,9 @@ export class Projecthomepage extends Component {
         {/* Footer */}
         <div className="footer">
           <div className="footer-content">
-            <div className="footer-text">
-              <p>Created by Shubham 2300032645</p>
-              <p className='copyrightText'>Copyright ©️ Shubham - KL University. All rights reserved</p>
+          <div className="footer-text">
+              <p>Created by Chaitanya 2300030974</p>
+              <p className='copyrightText'>Copyright ©️ - KL University. All rights reserved</p>
             </div>
             <div className="social-icons">
               <img className='socialmedialIcon' src='./images/facebook.png' alt="Facebook" />
