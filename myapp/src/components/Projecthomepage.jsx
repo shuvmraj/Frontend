@@ -160,7 +160,6 @@ export class Projecthomepage extends Component {
               <label>Confirm Password: </label>
               <input type='password' id='confirmPassword' />
               <button onClick={this.userRegistration} >Register Now</button>
-
               <div>Already have an account? <span onClick={this.showSignin}>SIGN IN</span></div>
 
             </div>
