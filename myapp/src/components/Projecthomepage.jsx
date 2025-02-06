@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import '../css/projecthomepage.css';
+import { callApi } from '../api';
 
 export class Projecthomepage extends Component {
+  constructor(){
+    super();
+    this.userRegistration = this.userRegistration.bind(this);
+  }
+
   showSignin() {
     let popup = document.getElementById('popup');
     let signin = document.getElementById('signin');
@@ -153,7 +159,7 @@ export class Projecthomepage extends Component {
               <input type='password' id='signuppassword' />
               <label>Confirm Password: </label>
               <input type='password' id='confirmPassword' />
-              <button >Register Now</button>
+              <button onClick={this.userRegistration} >Register Now</button>
 
               <div>Already have an account? <span onClick={this.showSignin}>SIGN IN</span></div>
 
