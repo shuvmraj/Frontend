@@ -6,14 +6,34 @@ export class Projecthomepage extends Component {
 
 
 constructor(){
-
-  
   super();
   this.userRegistration = this.userRegistration.bind(this);
+  this.userRegistration=this.userRegistration.bind(this);
+    this.forgotPassword=this.forgotPassword.bind(this);
 }
 
 
+forgotPassword() {
+  
+  usernameInput.style.border = "";
+  if (usernameInput.value === "") {
+    usernameInput.style.border = "1px solid red";
+    usernameInput.focus();
+      return;
+  }
 
+  let url = "http://localhost:8080/users/forgotpassword/" + usernameInput.value;
+  callApi("GET", url, "", this.forgotPasswordResponse.bind(this));
+}
+
+forgotPasswordResponse(res) {
+  let data = res.split("::");
+  if (data[0] === "200") {
+      responseDiv.innerHTML = `<br/><br/><label style='color: green'>${data[1]}</label>`;
+  } else {
+      responseDiv.innerHTML = `<br/><br/><label style='color: red'>${data[1]}</label>`;
+  }
+}
   showSignin() {
     let popup = document.getElementById('popup');
     let signin = document.getElementById('signin');
@@ -23,6 +43,8 @@ constructor(){
     signin.style.display = 'block';
     signup.style.display = 'none';
     popup.style.display = 'block';
+    username.value="";
+    password.value="";
   }
 
   showSignup() {
@@ -30,6 +52,7 @@ constructor(){
     let signin = document.getElementById('signin');
     let signup = document.getElementById('Signup');
     let popupHeader = document.getElementById('popupHeader');
+    
     popupHeader.innerHTML = 'Signup';
     signin.style.display = 'none';
     signup.style.display = 'block';
@@ -140,16 +163,17 @@ constructor(){
               <input type='text' id='usernameInput' />
               <label className='passwordLabel'>Password:</label>
               <input type='password' id='passwordInput' />
-              <div className='forgotPassword'><label>Forgot Password?</label></div>
+              <div className='forgotPassword'><label onClick={this.forgotPassword}>Forgot Password?</label></div>
               <button className='signinButton'>Sign In</button>
 
-              <div className='div1'></div>
+              <div className='div1' id='responseDiv'></div>
               <div className='div2'></div>
 
               Don't have an account?
               <div id='signup' onClick={this.showSignup.bind(this)}>Sign Up</div>
               <label onClick={this.showSignup.bind(this)}>SIGN UP NOW</label>
             </div>
+            
             <div id='Signup'>
               <label >Full Name:</label>
               <input type='text' id='fullname' />
@@ -217,7 +241,7 @@ constructor(){
         <div className="footer">
           <div className="footer-content">
           <div className="footer-text">
-              <p>Created by Chaitanya 2300030974</p>
+              <p>Created by Shubham 2300032645</p>
               <p className='copyrightText'>Copyright ©️ - KL University. All rights reserved</p>
             </div>
             <div className="social-icons">
